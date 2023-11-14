@@ -30,6 +30,11 @@
     $sql = "UPDATE esp32_table_dht11_leds_update SET temperature = ?, humidity = ?, status_read_sensor_dht11 = ?, time = ?, date = ? WHERE id = ?";
     $q = $pdo->prepare($sql);
     $q->execute(array($temperature,$humidity,$status_read_sensor_dht11,$tm,$dt,$id));
+    //para el segundo esp32
+    $sql = "UPDATE esp32_table_dht11_leds_update1 SET temperature = ?, humidity = ?, status_read_sensor_dht11 = ?, time = ?, date = ? WHERE id = ?";
+    $q = $pdo->prepare($sql);
+    $q->execute(array($temperature,$humidity,$status_read_sensor_dht11,$tm,$dt,$id));
+    
     Database::disconnect();
     //........................................ 
     
@@ -49,6 +54,10 @@
       // This table is operated with the "INSERT" command, so this table will contain many rows.
       // Before saving and recording data in this table, the "id" will be checked first, to ensure that the "id" that has been created has not been used in the table.
       $sql = 'SELECT * FROM esp32_table_dht11_leds_update WHERE id="' . $id_key . '"';
+      $q = $pdo->prepare($sql);
+      $q->execute();
+      //para el segundo esp32
+      $sql = 'SELECT * FROM esp32_table_dht11_leds_update1 WHERE id="' . $id_key . '"';
       $q = $pdo->prepare($sql);
       $q->execute();
       
