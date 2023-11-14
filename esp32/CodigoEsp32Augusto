@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 #include <WiFi.h>
 #include <HTTPClient.h>
 #include <Arduino_JSON.h>
 #include "DHT.h"
-//======================================== 
+//======================================== que paso
+=======
+#include <WiFi.h>
+#include <HTTPClient.h>
+#include <Arduino_JSON.h>
+#include "DHT.h"
+//======================================
+>>>>>>> 8e1bb6e31e46b0125ae240513d6f6a1bcd083001
 
 //======================================== DHT sensor settings (DHT11).
 #define DHTPIN 15 //--> Defines the Digital Pin connected to the DHT11 sensor.
