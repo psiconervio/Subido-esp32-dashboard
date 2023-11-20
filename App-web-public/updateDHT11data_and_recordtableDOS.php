@@ -50,7 +50,7 @@
       // This table is also used to store and record the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
       // This table is operated with the "INSERT" command, so this table will contain many rows.
       // Before saving and recording data in this table, the "id" will be checked first, to ensure that the "id" that has been created has not been used in the table.
-      $sql2 = 'SELECT * FROM esp32_table_dht11_leds_update1 WHEREs id="' . $id_key . '"';
+      $sql2 = 'SELECT * FROM esp32_table_dht11_leds_update1 WHERE id="' . $id_key . '"';
       $q = $pdo->prepare($sql2);
       $q->execute();
       
