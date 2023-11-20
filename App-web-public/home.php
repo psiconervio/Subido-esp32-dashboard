@@ -1,4 +1,4 @@
-<!-- // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> home.php
+<!-- // home.php
 /* PHP/HTML code to display DHT11 sensor data and control LEDs state.*/ -->
 <!DOCTYPE HTML>
 <html>
@@ -300,7 +300,6 @@
 			}
     /* prueba 2 script chat gpt
     
-    
     */
       /*SCRIPT PARA EL 2DO ESP32 -----------------------------------------------------------
     
@@ -421,26 +420,26 @@
     }
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        const myObj = JSON.parse(this.responseText);
-        if (myObj.id == "esp32_02") {
-          document.getElementById("ESP32_02_Temp").innerHTML = myObj.temperature;
-          document.getElementById("ESP32_02_Humd").innerHTML = myObj.humidity;
-          document.getElementById("ESP32_02_Status_Read_DHT11").innerHTML = myObj.status_read_sensor_dht11;
-          document.getElementById("ESP32_02_LTRD").innerHTML = "Time : " + myObj.ls_time + " | Date : " + myObj.ls_date + " (dd-mm-yyyy)";
-          if (myObj.LED_01 == "ON") {
+        const myObjDOS = JSON.parse(this.responseText);
+        if (myObjDOS.id == "esp32_02") {
+          document.getElementById("ESP32_02_Temp").innerHTML = myObjDOS.temperature;
+          document.getElementById("ESP32_02_Humd").innerHTML = myObjDOS.humidity;
+          document.getElementById("ESP32_02_Status_Read_DHT11").innerHTML = myObjDOS.status_read_sensor_dht11;
+          document.getElementById("ESP32_02_LTRD").innerHTML = "Time : " + myObjDOS.ls_time + " | Date : " + myObjDOS.ls_date + " (dd-mm-yyyy)";
+          if (myObjDOS.LED_01 == "ON") {
             document.getElementById("ESP32_02_TogLED_01").checked = true;
-          } else if (myObj.LED_01 == "OFF") {
+          } else if (myObj1.LED_0DOS == "OFF") {
             document.getElementById("ESP32_02_TogLED_01").checked = false;
           }
-          if (myObj.LED_02 == "ON") {
+          if (myObjDOS.LED_02 == "ON") {
             document.getElementById("ESP32_02_TogLED_02").checked = true;
-          } else if (myObj.LED_02 == "OFF") {
+          } else if (myObjDOS.LED_02 == "OFF") {
             document.getElementById("ESP32_02_TogLED_02").checked = false;
           }
         }
       }
     };
-    xmlhttp.open("POST", "getdata.php", true);
+    xmlhttp.open("POST", "getdataDOS.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("id=" + id);
   }
@@ -482,4 +481,3 @@
 
   </body>
 </html>
-

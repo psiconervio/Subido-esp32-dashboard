@@ -1,4 +1,4 @@
-<!-- // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> updateDHT11data_and_recordtable.php
+<!--  updateDHT11data_and_recordtable.php
 // PHP code to update and record DHT11 sensor data and LEDs state in table. -->
 <?php
   require 'database.php';
@@ -12,6 +12,8 @@
     $status_read_sensor_dht11 = $_POST['status_read_sensor_dht11'];
     $led_01 = $_POST['led_01'];
     $led_02 = $_POST['led_02'];
+   // $led_01 = isset($_POST['led_01']) ? $_POST['led_01'] : null;
+//    $led_02 = isset($_POST['led_02']) ? $_POST['led_02'] : null;
     //........................................
     
     //........................................ Get the time and date.
@@ -27,8 +29,8 @@
     // This table is used to store DHT11 sensor data updated by ESP32. 
     // This table is also used to store the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
     // This table is operated with the "UPDATE" command, so this table will only contain one row.
-    $sql = "UPDATE esp32_table_dht11_leds_update1 SET temperature = ?, humidity = ?, status_read_sensor_dht11 = ?, time = ?, date = ? WHERE id = ?";
-    $q = $pdo->prepare($sql);
+    $sql2 = "UPDATE esp32_table_dht11_leds_update1 SET temperature = ?, humidity = ?, status_read_sensor_dht11 = ?, time = ?, date = ? WHERE id = ?";
+    $q = $pdo->prepare($sql2);
     $q->execute(array($temperature,$humidity,$status_read_sensor_dht11,$tm,$dt,$id));
     Database::disconnect();
     //........................................ 
@@ -48,8 +50,8 @@
       // This table is also used to store and record the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
       // This table is operated with the "INSERT" command, so this table will contain many rows.
       // Before saving and recording data in this table, the "id" will be checked first, to ensure that the "id" that has been created has not been used in the table.
-      $sql = 'SELECT * FROM esp32_table_dht11_leds_update1 WHERE id="' . $id_key . '"';
-      $q = $pdo->prepare($sql);
+      $sql2 = 'SELECT * FROM esp32_table_dht11_leds_update1 WHEREs id="' . $id_key . '"';
+      $q = $pdo->prepare($sql2);
       $q->execute();
       
       if (!$data = $q->fetch()) {
@@ -64,8 +66,8 @@
     // This table is used to store and record DHT11 sensor data updated by ESP32. 
     // This table is also used to store and record the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
     // This table is operated with the "INSERT" command, so this table will contain many rows.
-		$sql = "INSERT INTO esp32_table_dht11_leds_update1 (id,board,temperature,humidity,status_read_sensor_dht11,LED_01,LED_02,time,date) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		$q = $pdo->prepare($sql);
+		$sql2 = "INSERT INTO esp32_table_dht11_leds_update1 (id,board,temperature,humidity,status_read_sensor_dht11,LED_01,LED_02,time,date) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$q = $pdo->prepare($sql2);
 		$q->execute(array($id_key,$board,$temperature,$humidity,$status_read_sensor_dht11,$led_01,$led_02,$tm,$dt));
     //::::::::
     
