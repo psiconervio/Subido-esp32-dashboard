@@ -199,6 +199,8 @@
           <p class="temperatureColor"><span class="reading"><span id="ESP32_02_Temp"></span> &deg;C</span></p>
           <h4 class="humidityColor"><i class="fas fa-tint"></i> HUMEDAD</h4>
           <p class="humidityColor"><span class="reading"><span id="ESP32_02_Humd"></span> &percnt;</span></p>
+          <h4 class="anemometro_title"> <i class="fas fa-tint"></i>Anemometro</h4>
+          <p class="anemometro"><span class="reading"></span></p>
           <!-- *********************************************************************** -->
           
           <p class="statusreadColor"><span>Estado Read Sensor DHT11 : </span><span id="ESP32_02_Status_Read_DHT11"></span></p>
