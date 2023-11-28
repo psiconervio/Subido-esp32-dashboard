@@ -1,7 +1,7 @@
 <!-- // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> updateDHT11data_and_recordtable.php
 // PHP code to update and record DHT11 sensor data and LEDs state in table. -->
 <?php
-/*hhhjjj
+/*
   require 'database.php'; dsadklsalda
   //---------------------------------------- Condition to check that POST value is not empty.
   if (!empty($_POST)) {
