@@ -1,10 +1,10 @@
 
 <?php
 	class Database {
-		private static $dbName = 'id21496293_dasbhoard_error2'; // Example: private static $dbName = 'myDB';
+		private static $dbName = 'esp32dashboard'; // Example: private static $dbName = 'myDB';
 		private static $dbHost = 'localhost'; // Example: private static $dbHost = 'localhost';
-		private static $dbUsername = 'id21496293_psiconervio'; // Example: private static $dbUsername = 'myUserName';
-		private static $dbUserPassword = 'Psiconervio*1'; // // Example: private static $dbUserPassword = 'myPassword';
+		private static $dbUsername = 'root'; // Example: private static $dbUsername = 'myUserName';
+		private static $dbUserPassword = 'root'; // // Example: private static $dbUserPassword = 'myPassword';
 		 
 		private static $cont  = null;
 		 
