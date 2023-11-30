@@ -418,6 +418,7 @@
       xmlhttp.send("id=" + id + "&lednum=" + lednum + "&ledstate=" + ledstate);
     }
     </script>
+    
     <script> //------------------------/ tercer script/------------------------------------------------ 
     document.getElementById("ESP32_03_Temp").innerHTML = "NN"; 
     document.getElementById("ESP32_03_Humd").innerHTML = "NN";
