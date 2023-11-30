@@ -1,4 +1,4 @@
-<!--  updateDHT11data_and_recordtable.php
+<!--  updateDHT11data_and_recordtable.phpsss
 // PHP code to update and record DHT11 sensor data and LEDs state in table. -->
 <?php
   require 'database.php';
