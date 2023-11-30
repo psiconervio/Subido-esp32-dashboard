@@ -64,7 +64,17 @@ void control_LEDs() {
   Serial.println("---------------");
 }
 //________________________________________________________________________________ 
-
+void lecturaAnemometro (){ 
+  int promedio=0;
+  for (int i=0; i<1000; i++)
+  {
+    int lectura = analogRead(2);
+    promedio=promedio+lectura;
+    delay(1);
+  }
+  promedio=promedio/1000;
+  //Serial.println(promedio);
+}
 // _____________________________________ Subroutine to read and get data from the DHT11 sensor.
 void get_DHT11_sensor_data() {
   Serial.println();
@@ -180,7 +190,8 @@ void loop() {
   if(WiFi.status()== WL_CONNECTED) {
     HTTPClient http;  //--> Declare object of class HTTPClient.
     int httpCode;     //--> Variables for HTTP return code.
-    
+    lecturaAnemometro();
+
     //conectado con getdata.php/no cambiar nombre // Process to get LEDs data from database to control LEDs.
     postData = "id=esp32_03";
     
@@ -230,6 +241,7 @@ void loop() {
     postData += "&temperature=" + String(send_Temp);
     postData += "&humidity=" + String(send_Humd);
     postData += "&status_read_sensor_dht11=" + send_Status_Read_DHT11;
+    postData += "&anemometro" + promedio;  
     
     payload = "";
   
