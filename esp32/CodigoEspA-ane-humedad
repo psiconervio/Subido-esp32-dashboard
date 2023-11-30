@@ -242,7 +242,7 @@ void loop() {
     postData += "&humidity=" + String(send_Humd);
     postData += "&status_read_sensor_dht11=" + send_Status_Read_DHT11;
     postData += "&anemometro=" + String(promedio);  
-    
+    //se agrego el anemometro
     payload = "";
   
     digitalWrite(ON_Board_LED, HIGH);
