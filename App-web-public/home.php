@@ -191,19 +191,19 @@
         <!-- == MONITOREO_ESP32_03=== -->
         <div class="card">
           <div class="card header">
-            <h3 style="font-size: 1rem;">MONITOREO SENSOR ESP32_02</h3>
+            <h3 style="font-size: 1rem;">MONITOREO SENSOR ESP32_03</h3>
           </div>
           
           <!-- Displays the humidity and temperature values received from ESP32. *** -->
           <h4 class="temperatureColor"><i class="fas fa-thermometer-half"></i> Temperatura</h4>
-          <p class="temperatureColor"><span class="reading"><span id="ESP32_02_Temp"></span> &deg;C</span></p>
+          <p class="temperatureColor"><span class="reading"><span id="ESP32_03_Temp"></span> &deg;C</span></p>
           <h4 class="humidityColor"><i class="fas fa-tint"></i> HUMEDAD</h4>
-          <p class="humidityColor"><span class="reading"><span id="ESP32_02_Humd"></span> &percnt;</span></p>
+          <p class="humidityColor"><span class="reading"><span id="ESP32_03_Humd"></span> &percnt;</span></p>
           <h4 class="anemometro_title"> <i class="fas fa-tint"></i>Anemometro</h4>
-          <p class="anemometro"><span id="Anemometro"></span></p>
+          <p class="anemometro"><span class="reading" id="ESP32_03_anemometro"></span></p>
           <!-- *********************************************************************** -->
           
-          <p class="statusreadColor"><span>Estado Read Sensor DHT11 : </span><span id="ESP32_02_Status_Read_DHT11"></span></p>
+          <p class="statusreadColor"><span>Estado Read Sensor DHT11 : </span><span id="ESP32_03_Status_Read_DHT11"></span></p>
         </div>
         <!-- ============================================================================= -->
         
@@ -216,12 +216,12 @@
           <!-- Botones para controlar los LED en Slave 2.  -->
           <h4 class="LEDColor"><i class="fas fa-lightbulb"></i> LED 1</h4>
           <label class="switch">
-            <input type="checkbox" id="ESP32_02_TogLED_01" onclick="GetTogBtnLEDState('ESP32_02_TogLED_01')">
+            <input type="checkbox" id="ESP32_03_TogLED_01" onclick="GetTogBtnLEDState('ESP32_03_TogLED_01')">
             <div class="sliderTS"></div>
           </label>
           <h4 class="LEDColor"><i class="fas fa-lightbulb"></i> LED 2</h4>
           <label class="switch">
-            <input type="checkbox" id="ESP32_02_TogLED_02" onclick="GetTogBtnLEDState('ESP32_02_TogLED_02')">
+            <input type="checkbox" id="ESP32_03_TogLED_02" onclick="GetTogBtnLEDState('ESP32_03_TogLED_02')">
             <div class="sliderTS"></div>
           </label>
           <!-- *********************************************************************** -->
@@ -365,7 +365,7 @@
             document.getElementById("ESP32_02_Temp").innerHTML = myObjDOS.temperature;
             document.getElementById("ESP32_02_Humd").innerHTML = myObjDOS.humidity;
             document.getElementById("ESP32_02_Status_Read_DHT11").innerHTML = myObjDOS.status_read_sensor_dht11;
-            document.getElementById("ESP32_02_LTRD").innerHTML = "Time : " + myObjDOS.ls_time + " | Date : " + myObjDOS  .ls_date + " (dd-mm-yyyy)";
+            //document.getElementById("ESP32_02_LTRD").innerHTML = "Time : " + myObjDOS.ls_time + " | Date : " + myObjDOS  .ls_date + " (dd-mm-yyyy)";
             if (myObjDOS.LED_01 == "ON") {
               document.getElementById("ESP32_02_TogLED_01").checked = true;
             } else if (myObjDOS.LED_0DOS == "OFF") {
@@ -424,7 +424,7 @@
     document.getElementById("ESP32_03_Humd").innerHTML = "NN";
     document.getElementById("ESP32_03_Status_Read_DHT11").innerHTML = "NN";
     //document.getElementById("ESP32_03_LTRD").innerHTML = "NN";
-    document.getElementById
+    //document.getElementById("ESP32_03_anemometro).innerHTML ="NN";
     //se necesita usar otra variable xmlhttp a xmlhttpp
     obtenerDataa("esp32_03");
     
