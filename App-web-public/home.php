@@ -200,7 +200,7 @@
           <h4 class="humidityColor"><i class="fas fa-tint"></i> HUMEDAD</h4>
           <p class="humidityColor"><span class="reading"><span id="ESP32_03_Humd"></span> &percnt;</span></p>
           <h4 class="anemometro_title"> <i class="fas fa-tint"></i>Anemometro</h4>
-          <p class="anemometro"><span class="reading" id="ESP32_03_anemometro"></span></p>
+          <p class="anemometro"><span id="ESP32_03_anemometro"></span></p>
           <!-- *********************************************************************** -->
           
           <p class="statusreadColor"><span>Estado Read Sensor DHT11 : </span><span id="ESP32_03_Status_Read_DHT11"></span></p>
@@ -420,11 +420,13 @@
     </script>
     
     <script> //------------------------/ tercer script/------------------------------------------------ 
+    //trabajar con este script para enviar bien los datos, del anemomeotr
     document.getElementById("ESP32_03_Temp").innerHTML = "NN"; 
     document.getElementById("ESP32_03_Humd").innerHTML = "NN";
     document.getElementById("ESP32_03_Status_Read_DHT11").innerHTML = "NN";
     //document.getElementById("ESP32_03_LTRD").innerHTML = "NN";
-    //document.getElementById("ESP32_03_anemometro).innerHTML ="NN";
+    document.getElementById("ESP32_03_anemometro").innerHTML ="NN";
+
     //se necesita usar otra variable xmlhttp a xmlhttpp
     obtenerDataa("esp32_03");
     
@@ -450,6 +452,8 @@
             document.getElementById("ESP32_03_Temp").innerHTML = myObjTRES.temperature;
             document.getElementById("ESP32_03_Humd").innerHTML = myObjTRES.humidity;
             document.getElementById("ESP32_03_Status_Read_DHT11").innerHTML = myObjTRES.status_read_sensor_dht11;
+            //se agrego esta linea de abajo
+            document.getElementById("ESP32_03_anemometro").innerHTML = myObjTRES.anemometro;
             document.getElementById("ESP32_03_LTRD").innerHTML = "Time : " + myObjTRES.ls_time + " | Date : " + myObjTRES  .ls_date + " (dd-mm-yyyy)";
             if (myObjTRES.LED_01 == "ON") {
               document.getElementById("ESP32_03_TogLED_01").checked = true;
