@@ -29,7 +29,7 @@
     // This table is used to store DHT11 sensor data updated by ESP32. 
     // This table is also used to store the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
     // This table is operated with the "UPDATE" command, so this table will only contain one row.
-    $sql3 = "UPDATE esp32_table_dht11_leds_update1 SET temperature = ?, humidity = ?, status_read_sensor_dht11 = ?, time = ?, date = ? WHERE id = ?";
+    $sql3 = "UPDATE esp32_table_dht11_leds_update2 SET temperature = ?, humidity = ?, status_read_sensor_dht11 = ?, time = ?, date = ? WHERE id = ?";
     $q = $pdo->prepare($sql3);
     $q->execute(array($temperature,$humidity,$status_read_sensor_dht11,$tm,$dt,$id));
     Database::disconnect();
@@ -50,7 +50,7 @@
       // This table is also used to store and record the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
       // This table is operated with the "INSERT" command, so this table will contain many rows.
       // Before saving and recording data in this table, the "id" will be checked first, to ensure that the "id" that has been created has not been used in the table.
-      $sql3 = 'SELECT * FROM esp32_table_dht11_leds_update1 WHERE id="' . $id_key . '"';
+      $sql3 = 'SELECT * FROM esp32_table_dht11_leds_update2 WHERE id="' . $id_key . '"';
       $q = $pdo->prepare($sql3);
       $q->execute();
       
@@ -66,7 +66,7 @@
     // This table is used to store and record DHT11 sensor data updated by ESP32. 
     // This table is also used to store and record the state of the LEDs, the state of the LEDs is controlled from the "home.php" page. 
     // This table is operated with the "INSERT" command, so this table will contain many rows.
-		$sql3 = "INSERT INTO esp32_table_dht11_leds_update1 (id,board,temperature,humidity,status_read_sensor_dht11,LED_01,LED_02,time,date) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$sql3 = "INSERT INTO esp32_table_dht11_leds_update2 (id,board,temperature,humidity,status_read_sensor_dht11,LED_01,LED_02,time,date) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$q = $pdo->prepare($sql3);
 		$q->execute(array($id_key,$board,$temperature,$humidity,$status_read_sensor_dht11,$led_01,$led_02,$tm,$dt));
     //::::::::
