@@ -334,13 +334,13 @@
 			}
  
     </script>
-    <script> // segundo script 
-    
+
+    <script> // segundo script------------------------------------------------------------------------ 
     document.getElementById("ESP32_02_Temp").innerHTML = "NN"; 
     document.getElementById("ESP32_02_Humd").innerHTML = "NN";
     document.getElementById("ESP32_02_Status_Read_DHT11").innerHTML = "NN";
     //document.getElementById("ESP32_02_LTRD").innerHTML = "NN";
-    //se esta cambiando la variable xmlhttp a xmlhttpp
+    //se necesita usar otra variable xmlhttp a xmlhttpp
     obtenerData("esp32_02");
     
     setInterval(myTimer, 10000);
@@ -418,70 +418,70 @@
       xmlhttp.send("id=" + id + "&lednum=" + lednum + "&ledstate=" + ledstate);
     }
     </script>
-    <script> // tercer script 
-    
-    document.getElementById("ESP32_02_Temp").innerHTML = "NN"; 
-    document.getElementById("ESP32_02_Humd").innerHTML = "NN";
-    document.getElementById("ESP32_02_Status_Read_DHT11").innerHTML = "NN";
-    //document.getElementById("ESP32_02_LTRD").innerHTML = "NN";
-    //se esta cambiando la variable xmlhttp a xmlhttpp
-    obtenerData("esp32_02");
+    <script> //------------------------/ tercer script/------------------------------------------------ 
+    document.getElementById("ESP32_03_Temp").innerHTML = "NN"; 
+    document.getElementById("ESP32_03_Humd").innerHTML = "NN";
+    document.getElementById("ESP32_03_Status_Read_DHT11").innerHTML = "NN";
+    //document.getElementById("ESP32_03_LTRD").innerHTML = "NN";
+    document.getElementById
+    //se necesita usar otra variable xmlhttp a xmlhttpp
+    obtenerDataa("esp32_03");
     
     setInterval(myTimer, 10000);
     
     function myTimer() {
-      obtenerData("esp32_03");
+      obtenerDataa("esp32_03");
     }
     
-    function obtenerData(id) {
+    function obtenerDataa(id) {
         console.log("se esta ejecutando ObtenerData")
-      var xmlhttpp;
+      var xmlhttppp;
       if (window.XMLHttpRequest) {
-        xmlhttpp = new XMLHttpRequest();
+        xmlhttppp = new XMLHttpRequest();
       } else {
-        xmlhttpp = new ActiveXObject("Microsoft.XMLHTTP");
+        xmlhttppp = new ActiveXObject("Microsoft.XMLHTTP");
       }
-      xmlhttpp.onreadystatechange = function() {
+      xmlhttppp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             console.log("Respuesta del servidor:", this.responseText);
-          var myObjDOS = JSON.parse(this.responseText);
-          if (myObjDOS.id == "esp32_03") {
-            document.getElementById("ESP32_02_Temp").innerHTML = myObjDOS.temperature;
-            document.getElementById("ESP32_02_Humd").innerHTML = myObjDOS.humidity;
-            document.getElementById("ESP32_02_Status_Read_DHT11").innerHTML = myObjDOS.status_read_sensor_dht11;
-            document.getElementById("ESP32_02_LTRD").innerHTML = "Time : " + myObjDOS.ls_time + " | Date : " + myObjDOS  .ls_date + " (dd-mm-yyyy)";
-            if (myObjDOS.LED_01 == "ON") {
-              document.getElementById("ESP32_02_TogLED_01").checked = true;
-            } else if (myObjDOS.LED_0DOS == "OFF") {
-              document.getElementById("ESP32_02_TogLED_01").checked = false;
+          var myObjTRES = JSON.parse(this.responseText);
+          if (myObjTRES.id == "esp32_03") {
+            document.getElementById("ESP32_03_Temp").innerHTML = myObjTRES.temperature;
+            document.getElementById("ESP32_03_Humd").innerHTML = myObjTRES.humidity;
+            document.getElementById("ESP32_03_Status_Read_DHT11").innerHTML = myObjTRES.status_read_sensor_dht11;
+            document.getElementById("ESP32_03_LTRD").innerHTML = "Time : " + myObjTRES.ls_time + " | Date : " + myObjTRES  .ls_date + " (dd-mm-yyyy)";
+            if (myObjTRES.LED_01 == "ON") {
+              document.getElementById("ESP32_03_TogLED_01").checked = true;
+            } else if (myObjTRES.LED_0TRES == "OFF") {
+              document.getElementById("ESP32_03_TogLED_01").checked = false;
             }
-            if (myObjDOS.LED_02 == "ON") {
-              document.getElementById("ESP32_02_TogLED_02").checked = true;
-            } else if (myObjDOS.LED_02 == "OFF") {
-              document.getElementById("ESP32_02_TogLED_02").checked = false;
+            if (myObjTRES.LED_02 == "ON") {
+              document.getElementById("ESP32_03_TogLED_02").checked = true;
+            } else if (myObjTRES.LED_02 == "OFF") {
+              document.getElementById("ESP32_03_TogLED_02").checked = false;
             }
           }
         }
       };
-      xmlhttpp.open("POST", "getdataDOS.php", true);
-      xmlhttpp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xmlhttpp.send("id=" + id);
+      xmlhttppp.open("POST", "getdataTRES.php", true);
+      xmlhttppp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xmlhttppp.send("id=" + id);
     }
     
     function GetTogBtnLEDStatee(togbtnid) {
-      if (togbtnid == "ESP32_02_TogLED_01") {
+      if (togbtnid == "ESP32_03_TogLED_01") {
         var togbtnchecked = document.getElementById(togbtnid).checked;
         var togbtncheckedsend = "";
         if (togbtnchecked == true) togbtncheckedsend = "ON";
         if (togbtnchecked == false) togbtncheckedsend = "OFF";
-        Update_LEDss("esp32_02", "LED_01", togbtncheckedsend);
+        Update_LEDss("esp32_03", "LED_01", togbtncheckedsend);
       }
-      if (togbtnid == "ESP32_02_TogLED_02") {
+      if (togbtnid == "ESP32_03_TogLED_02") {
         var togbtnchecked = document.getElementById(togbtnid).checked;
         var togbtncheckedsend = "";
         if (togbtnchecked == true) togbtncheckedsend = "ON";
         if (togbtnchecked == false) togbtncheckedsend = "OFF";
-        Update_LEDss("esp32_02", "LED_02", togbtncheckedsend);
+        Update_LEDss("esp32_03", "LED_02", togbtncheckedsend);
       }
     }
     
